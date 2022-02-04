@@ -25,12 +25,9 @@ const links: Link[] = [
 
 export const Landing = () => {
   return (
-    <div className='bg-slate-700 h-screen w-screen text-white font-roboto flex justify-center items-center '>
-      <div className='grid grid-cols-2 grid-rows-1 justify-items-end'>
-        <div className='row-span-2 justify-self-center self-center '>
-          <Logo src={tLogo} spin={false} />
-        </div>
-        <div className='flex h-full w-full flex-col justify-center gap-2'>
+    <div className='bg-slate-700 h-screen w-screen text-white font-roboto flex justify-center items-center p-6 '>
+      <div className='grid md:grid-cols-2 justify-items-start gap-6 h-full'>
+        <div className='flex h-full w-full flex-col justify-center gap-2 md:order-2'>
           <h1 className='text-6xl self-end text-right'>
             Hi, I &rsquo;m Todd Judd
           </h1>
@@ -55,6 +52,9 @@ export const Landing = () => {
           <h3 className='text-right italic font-thin'>
             Feel free to get in touch
           </h3>
+        </div>
+        <div className='md:justify-self-center md: self-center'>
+          <Logo className=' h-40 md:h-auto' src={tLogo} spin={false} />
         </div>
       </div>
     </div>
