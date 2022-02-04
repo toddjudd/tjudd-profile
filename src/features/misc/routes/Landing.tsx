@@ -1,21 +1,62 @@
+import {
+  faGithub,
+  faLinkedinIn,
+  IconDefinition,
+} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import tLogo from '@/assets/tlogo.png';
 import { Logo } from '@/components/Elements';
+
+interface Link {
+  href: string;
+  icon: IconDefinition;
+}
+
+const links: Link[] = [
+  { href: 'mailto:todd.judd@gmail.com', icon: faEnvelope },
+  {
+    href: 'https://www.linkedin.com/in/todd-judd-432a86b4/',
+    icon: faLinkedinIn,
+  },
+  { href: 'https://github.com/toddjudd', icon: faGithub },
+];
 
 export const Landing = () => {
   return (
-    <div className='text-center'>
-      <header className='bg-[#282c34] min-h-screen flex flex-col items-center justify-center text-white text-xl'>
-        <Logo />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. changes
-        </p>
-        <a
-          className='text-[#61dafb]'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
+    <div className='bg-slate-700 h-screen w-screen text-white font-roboto flex justify-center items-center '>
+      <div className='grid grid-cols-2 grid-rows-1 justify-items-end'>
+        <div className='row-span-2 justify-self-center self-center '>
+          <Logo src={tLogo} spin={false} />
+        </div>
+        <div className='flex h-full w-full flex-col justify-center gap-2'>
+          <h1 className='text-6xl self-end text-right'>
+            Hi, I &rsquo;m Todd Judd
+          </h1>
+          <h2 className='text-3xl text-right'>
+            I&rsquo;m a <b>Software Developer</b>
+          </h2>
+          <ul className='flex justify-end gap-4'>
+            {links.map((link, i) => (
+              <li
+                className=' bg-orange-500 hover:bg-white hover:text-orange-500 py-1 px-3 rounded-xl'
+                key={i}>
+                <a
+                  href={link.href}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='hover:text-orange-500 '>
+                  <FontAwesomeIcon icon={link.icon} size='2x' />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <h3 className='text-right italic font-thin'>
+            Feel free to get in touch
+          </h3>
+        </div>
+      </div>
     </div>
   );
 };
